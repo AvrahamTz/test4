@@ -28,7 +28,7 @@ def savedname(name):
         return {"msg":"saved user"}
     
 @app.post("/caesar{CEASER}")
-def caesar(item:Item):
+def caesar(item:dict):
     if item["mode"] == "encrypt":
         encrypted_text =func.caesar_cipher(item["text",item["offset"]])
         return {"encrypted_text":encrypted_text}
@@ -42,7 +42,7 @@ def get_text(text:str):
     return {"encrypted_text":encrypted_text}
 
 @app.post("/fence/decrypt/{Text}")
-def encypted(Text):
+def encypted(Text:dict):
     decrypted = func.reverse_fence_cipher(Text["text"])
     return {"decrypted":decrypted}
 
